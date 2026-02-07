@@ -53,7 +53,21 @@ async function main() {
       exit(0);
     }
 
-    const hasContext = new RegExp(`^${CONTEXT_MARKER}`, "m").test(command);
+    // Extract commit message(s) from the command
+    const messages = [];
+
+    // Match all -m "message" or -m 'message' flags
+    const msgRegex = /-m\s+(['"])((?:(?!\1).|\\\1)*)\1/g;
+    let match;
+    while ((match = msgRegex.exec(command)) !== null) {
+      messages.push(match[2]);
+    }
+
+    // Check if any message contains the context marker
+    const hasContext = messages.some(msg =>
+      new RegExp(CONTEXT_MARKER, "m").test(msg)
+    );
+
     if (hasContext) {
       log("Context marker found, allowing commit");
       exit(0);
