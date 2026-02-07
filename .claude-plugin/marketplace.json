@@ -5,13 +5,12 @@
   },
   "metadata": {
     "description": "Claude Code plugins for enhanced development workflows and git operations",
-    "version": "1.0.0",
-    "pluginRoot": "./plugins"
+    "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "git-commit-conversation-context",
-      "source": "git-commit-conversation-context",
+      "source": "./plugins/git-commit-conversation-context",
       "description": "Enforce conversation context in git commits with automatic skill integration",
       "version": "1.0.0",
       "author": {
