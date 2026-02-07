@@ -1,0 +1,26 @@
+{
+  "name": "codeofficer-marketplace",
+  "owner": {
+    "name": "rjones"
+  },
+  "metadata": {
+    "description": "Claude Code plugins for enhanced development workflows and git operations",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "git-commit-conversation-context",
+      "source": "git-commit-conversation-context",
+      "description": "Enforce conversation context in git commits with automatic skill integration",
+      "version": "1.0.0",
+      "author": {
+        "name": "rjones"
+      },
+      "homepage": "https://github.com/codeofficer/codeofficer-marketplace",
+      "repository": "https://github.com/codeofficer/codeofficer-marketplace",
+      "license": "MIT",
+      "keywords": ["git", "commits", "context", "documentation", "workflow", "hooks"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "git-commit-conversation-context",
+  "version": "1.0.0",
+  "description": "Automatically adds conversation context to git commits, documenting the 'why' behind code changes",
+  "author": {
+    "name": "rjones"
+  },
+  "homepage": "https://github.com/codeofficer/codeofficer-marketplace/tree/main/plugins/git-commit-conversation-context",
+  "repository": "https://github.com/codeofficer/codeofficer-marketplace",
+  "license": "MIT",
+  "keywords": ["git", "commits", "context", "documentation"]
+}
