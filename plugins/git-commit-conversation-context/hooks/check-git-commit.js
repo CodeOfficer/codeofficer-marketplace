@@ -56,8 +56,8 @@ async function main() {
     // Extract commit message(s) from the command
     const messages = [];
 
-    // Match all -m "message" or -m 'message' flags
-    const msgRegex = /-m\s+(['"])((?:(?!\1).|\\\1)*)\1/g;
+    // Match all -m "message" or -m 'message' flags - use DOTALL to match across newlines
+    const msgRegex = /-m\s+(['"])((?:(?!\1)[\s\S]|\\\1)*?)\1/g;
     let match;
     while ((match = msgRegex.exec(command)) !== null) {
       messages.push(match[2]);
