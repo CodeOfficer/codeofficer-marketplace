@@ -22,3 +22,6 @@ yarn-error.log*
 # Temporary files
 *.tmp
 *.temp
+
+# Claude Code local config (plugin configs live in plugins/ dir)
+.claude/
