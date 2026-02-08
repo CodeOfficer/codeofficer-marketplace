@@ -1,6 +1,6 @@
 ---
 name: git-commit-conversation-context
-description: Use when creating git commits to ensure conversation context is documented. Works alongside existing commit workflows.
+description: REQUIRED for every git commit. Always invoke this skill before running git commit — no exceptions, including subagents. Adds conversation context documenting why the change was made.
 ---
 
 # Git Commit Conversation Context
