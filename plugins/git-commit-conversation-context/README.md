@@ -134,16 +134,20 @@ This plugin enhances your existing commit process:
 Check that the hook script is executable:
 
 ```bash
-chmod +x ~/.claude/plugins/git-commit-conversation-context/hooks/check-git-commit.js
+chmod +x ~/.claude/plugins/git-commit-conversation-context/hooks/check-git-commit.sh
 ```
 
-### Want to see hook logs
+### Want to debug the hook
 
-The hook logs to `/tmp/claude-hook-check-git-commit.log`:
+Run a quick test by piping simulated input:
 
 ```bash
-tail -f /tmp/claude-hook-check-git-commit.log
+echo '{"tool_name":"Bash","tool_input":{"command":"git commit -m \"test\""},"cwd":"/tmp"}' \
+  | bash ~/.claude/plugins/git-commit-conversation-context/hooks/check-git-commit.sh
+echo "Exit code: $?"
 ```
+
+Exit code 0 means the commit would be allowed; exit code 2 means it was blocked.
 
 ### Commits still going through without context
 
