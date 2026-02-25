@@ -30,6 +30,5 @@ fi
 echo "$COMMAND" | grep -q "Conversation Context:" && exit 0
 
 # Block the commit
-echo "Git commit blocked: Missing conversation context." >&2
-echo "Please use the /git-commit-conversation-context skill first — it will help you document how this work came about." >&2
+echo "Git commit blocked: Missing conversation context. Please use the /git-commit-conversation-context skill first." >&2
 exit 2
