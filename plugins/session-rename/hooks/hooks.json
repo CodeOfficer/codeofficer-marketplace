@@ -1,7 +1,7 @@
 {
   "description": "Suggests a descriptive session name before the session ends",
   "hooks": {
-    "Stop": [
+    "SessionEnd": [
       {
         "hooks": [
           {

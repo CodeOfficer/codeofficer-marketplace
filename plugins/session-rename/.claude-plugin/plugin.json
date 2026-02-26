@@ -1,6 +1,6 @@
 {
   "name": "session-rename",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Suggests a descriptive session name before ending, so sessions are easy to find later",
   "author": {
     "name": "rjones"
