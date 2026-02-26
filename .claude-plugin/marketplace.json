@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Claude Code plugins for enhanced development workflows and git operations",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "plugins": [
     {
@@ -20,6 +20,19 @@
       "repository": "https://github.com/codeofficer/codeofficer-marketplace",
       "license": "MIT",
       "keywords": ["git", "commits", "context", "documentation", "workflow", "hooks"]
+    },
+    {
+      "name": "session-rename",
+      "source": "./plugins/session-rename",
+      "description": "Suggest a descriptive session name before ending for easy session discovery",
+      "version": "1.0.0",
+      "author": {
+        "name": "rjones"
+      },
+      "homepage": "https://github.com/codeofficer/codeofficer-marketplace",
+      "repository": "https://github.com/codeofficer/codeofficer-marketplace",
+      "license": "MIT",
+      "keywords": ["session", "rename", "workflow", "organization", "hooks"]
     }
   ]
 }

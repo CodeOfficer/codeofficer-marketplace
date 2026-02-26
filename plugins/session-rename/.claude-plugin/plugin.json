@@ -1,0 +1,12 @@
+{
+  "name": "session-rename",
+  "version": "1.0.0",
+  "description": "Suggests a descriptive session name before ending, so sessions are easy to find later",
+  "author": {
+    "name": "rjones"
+  },
+  "homepage": "https://github.com/codeofficer/codeofficer-marketplace/tree/main/plugins/session-rename",
+  "repository": "https://github.com/codeofficer/codeofficer-marketplace",
+  "license": "MIT",
+  "keywords": ["session", "rename", "workflow", "organization"]
+}

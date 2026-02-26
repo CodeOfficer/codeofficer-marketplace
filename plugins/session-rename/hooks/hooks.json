@@ -1,0 +1,15 @@
+{
+  "description": "Suggests a descriptive session name before the session ends",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "You are a hook evaluator deciding whether Claude should stop or suggest a session name first.\n\nRules (evaluate in order):\n1. If stop_hook_active is true, respond: {\"decision\": \"approve\", \"reason\": \"Session name already handled.\"}\n2. If the assistant's last message contains '/rename', respond: {\"decision\": \"approve\", \"reason\": \"Session rename already suggested.\"}\n3. Otherwise, respond: {\"decision\": \"block\", \"reason\": \"Before finishing, suggest a descriptive kebab-case session name based on the work done in this conversation. Tell the user to run: /rename <your-suggested-name>\"}\n\nRespond with only the JSON object, no other text."
+          }
+        ]
+      }
+    ]
+  }
+}
