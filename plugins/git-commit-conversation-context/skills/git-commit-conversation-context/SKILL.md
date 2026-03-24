@@ -1,6 +1,6 @@
 ---
 name: git-commit-conversation-context
-description: REQUIRED for every git commit. Always invoke this skill before running git commit — no exceptions, including subagents. Adds conversation context documenting why the change was made.
+description: REQUIRED for every git commit. Always invoke this skill before running git commit — no exceptions, including subagents. Adds conversation context documenting why the change was made. Trigger this skill whenever the user asks to commit, stage and commit, create a commit, push a commit, make a git commit, or any variation of "commit this", "commit what we have", "commit these changes". Also trigger when the user says "git commit" or asks you to finalize, save, or record changes to git. If a commit is happening, this skill must run first.
 ---
 
 # Git Commit Conversation Context
