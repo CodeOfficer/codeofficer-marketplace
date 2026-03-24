@@ -29,11 +29,15 @@ for word in $COMMAND; do
 done
 [ "$GIT_SUBCMD" = "commit" ] || exit 0
 
-# Check if the skill is installed (plugin or standalone)
-PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-}"
-if [ -n "$PLUGIN_ROOT" ]; then
-  SKILL_PATH="$PLUGIN_ROOT/skills/git-commit-conversation-context/SKILL.md"
-else
+# Resolve our own plugin root from this script's location.
+# This works regardless of which plugin triggered the hook, because $0
+# always points to THIS script inside THIS plugin's hooks/ directory.
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+OWN_PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+SKILL_PATH="$OWN_PLUGIN_ROOT/skills/git-commit-conversation-context/SKILL.md"
+
+# Fall back to CWD-based standalone installation if not found as plugin
+if [ ! -f "$SKILL_PATH" ]; then
   CWD=$(echo "$INPUT" | jq -r '.cwd // empty')
   SKILL_PATH="$CWD/.claude/skills/git-commit-conversation-context/SKILL.md"
 fi
