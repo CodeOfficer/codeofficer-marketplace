@@ -12,8 +12,22 @@ command -v jq >/dev/null 2>&1 || exit 0
 INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
 
-# Only act on commands containing git commit
-echo "$COMMAND" | grep -qE '(^|[;&|][[:space:]]*)git[[:space:]]+commit([[:space:]]|$)' || exit 0
+# Extract the git subcommand deterministically.
+# Git structure: git [global-flags] <subcommand> [args]
+# Global flags that consume the next argument: -C, -c, --git-dir, --work-tree, --namespace
+# The subcommand is the first non-flag token after 'git'.
+GIT_SUBCMD=""
+SKIP_NEXT=false
+for word in $COMMAND; do
+  if $SKIP_NEXT; then SKIP_NEXT=false; continue; fi
+  case "$word" in
+    git) GIT_SUBCMD=""; continue ;;
+    -C|-c|--git-dir|--work-tree|--namespace) SKIP_NEXT=true; continue ;;
+    -*) continue ;;
+    *) GIT_SUBCMD="$word"; break ;;
+  esac
+done
+[ "$GIT_SUBCMD" = "commit" ] || exit 0
 
 # Check if the skill is installed (plugin or standalone)
 PLUGIN_ROOT="${CLAUDE_PLUGIN_ROOT:-}"
